@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/admin/login','Admin\LoginController@login');
+Route::get('/h5/logins','H5\LoginController@logins');
+Route::get('/admin/Logins','Admin\LoginController@logins');
+Route::get('/admin/list','Admin\ListController@list');

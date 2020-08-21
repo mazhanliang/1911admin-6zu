@@ -29,11 +29,11 @@
     </script>
 </head>
 <body>
-<form action="{{url('h5/logins')}}" method="get">
+<form action="{{url('admin/logins')}}" method="get">
 <dl class="admin_login">
     <dt>
-        <strong>站点后台管理系统</strong>
-        <em>Management System</em>
+        <strong>1911-6组后台登录</strong>
+        <em>Good Good Study , Day Day Up !</em>
     </dt>
     <dd class="user_icon">
         <input type="text" placeholder="账号" name="user_name" class="login_txtbx"/>
@@ -41,21 +41,66 @@
     <dd class="pwd_icon">
         <input type="password" placeholder="密码"  name="user_pwd" class="login_txtbx"/>
     </dd>
-    <dd class="val_icon">
-        <div class="checkcode">
-            <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx">
-            <canvas class="J_codeimg" id="myCanvas" onclick="createCode()">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
-        </div>
-        <input type="button" value="验证码核验" class="ver_btn" onClick="validate();">
+{{--    <dd class="val_icon">--}}
+{{--        <div class="checkcode">--}}
+{{--            <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx">--}}
+{{--            <canvas class="J_codeimg" id="myCanvas" onclick="createCode()">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>--}}
+{{--        </div>--}}
+{{--        <input type="button" value="验证码核验" class="ver_btn" onClick="validate();">--}}
+{{--    </dd>--}}
+
+
+    <dd>
+        <input type="button" value="立即登陆" name="login" class="submit_btn"/>
     </dd>
     <dd>
-        <input type="submit" value="立即登陆" class="submit_btn"/>
+        <input type="button" value="立即注册" name="register" class="submit_btn"/>
     </dd>
     <dd>
         <p>© 2020-2066 DeathGhost 版权归yqc所有</p>
-        <p>豫E2-20200522-1</p>
+        <p>豫E-2002-0522-1</p>
     </dd>
 </dl>
 </form>
 </body>
 </html>
+<script src="/admin/js/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("input[name='login']").click(function (e) {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            e.preventDefault();
+            var user_name = $("input[name='user_name']").val();
+            var user_pwd = $("input[name='user_pwd']").val();
+
+            $.ajax({
+                url: '{{url('/admin/ajaxlogin') }}',
+                type: 'get',
+                data: {
+                    user_name: user_name,
+                    user_pwd: user_pwd
+                },
+                success: function (data) {
+                    if(data == '1') {
+                        alert('登陆失败！');
+                    } else {
+                        alert('登陆成功！');
+                        location.href="/admin/list";
+                    }
+                }
+            });
+
+        });
+
+        $("input[name='register']").click(function(){
+            location.href="/admin/register";
+        });
+    });
+</script>

@@ -18,11 +18,12 @@ class LoginController extends BaseController
     public function logins(Request $request){
         $user_name=$request->input('user_name');
         $user_pwd=$request->input('user_pwd');
-        $name=Users::where(['users_name'=>$user_name],['users_pwd'=>$user_pwd])->first();
+        $name=Users::where(['users_name'=>$user_name,'user_pwd'=>$user_pwd])->first();
         if($name){
-            echo '登陆成功！';
+            //echo '登陆成功！';
+            return view('admin.list');
         }else{
-            echo '登陆失败!';
+            return view('admin.login');
         }
 
     }

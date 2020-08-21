@@ -19,6 +19,13 @@ Route::get('/', function () {
 Route::get('/admin/login','Admin\LoginController@login');
 Route::get('/admin/register','Admin\LoginController@register');
 Route::get('/admin/adminreg','Admin\LoginController@adminreg');
+Route::get('/admin/classify','Admin\LoginController@classify');
+Route::get('/admin/ajaxclassify','Admin\LoginController@ajaxclassify');
+Route::get('/admin/classifylist','Admin\LoginController@classifylist');
+Route::get('/admin/classifydel','Admin\LoginController@classifydel');
+Route::get('/admin/classifyupdate{$id}','Admin\LoginController@classifyupdate');
+
+
 Route::get('/admin/ajaxlogin','Admin\LoginController@ajaxlogin');
 Route::get('/admin/list','Admin\LoginController@list');
 Route::get('/h5/logins','H5\LoginController@logins');

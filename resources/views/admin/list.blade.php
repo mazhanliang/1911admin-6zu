@@ -24,7 +24,7 @@
                     <li class="noRight"><a href="module.html">DouPHP+</a></li>
                 </ul>
                 <ul class="navRight">
-                    <li class="M noLeft"><a href="JavaScript:void(0);">您好，admin</a>
+                    <li class="M noLeft"><a href="JavaScript:void(0);">您好，yqc</a>
                         <div class="drop mUser">
                             <a href="manager.php?rec=edit&id=1">编辑我的个人资料</a>
                             <a href="manager.php?rec=cloud_account">设置云账户</a>
@@ -44,8 +44,8 @@
                 <li><a href="product.html"><i class="product"></i><em>商品列表</em></a></li>
             </ul>
             <ul>
-                <li><a href="article_category.html"><i class="articleCat"></i><em>文章分类</em></a></li>
-                <li><a href="article.html"><i class="article"></i><em>文章列表</em></a></li>
+                <li><a href="{{url('admin/classify')}}"><i class="articleCat"></i><em>分类添加</em></a></li>
+                <li><a href="{{url('admin/classifylist')}}"><i class="article"></i><em>分类列表</em></a></li>
             </ul>
             <ul class="bot">
                 <li><a href="{{url('admin/adminreg')}}"><i class="manager"></i><em>添加管理员</em></a></li>

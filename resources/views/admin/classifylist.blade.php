@@ -68,7 +68,7 @@
                 <th>{{$v->id}}</th>
                 <th>{{$v->classify_name}}</th>
                 <th><input type="button" name="del" value="删除" id="{{$v->id}}">
-                    <a href="{{url('admin/classifyupdate')}}?id={{$v->id}}">修改</a>
+                    <a href="{{url('admin/classifyupdate/'.$v->id)}}">修改</a>
                 </th>
             </tr>
         @endforeach

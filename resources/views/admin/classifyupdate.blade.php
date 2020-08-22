@@ -66,6 +66,7 @@
         <label for="phone" class="layui-form-label">
             <span class="x-red">*</span>是否展示
         </label>
+        <input type="hidden" name="id" value="{{$arr->id}}">
         <div class="layui-input-inline">
             <input type="radio" name="classify_show" id="a" value="1" checked>显示
             <input type="radio" name="classify_show" value="2">不显示
@@ -88,12 +89,14 @@
         $("input[name='update']").click(function(){
             var classify_name=$("input[name='classify_name']").val();
             var classify_show=$('input:radio[name="classify_show"]:checked').val();
+            var id=$("input[name='id']").val();
             $.ajax({
                 url: '{{url('/admin/ajaxclassifyupdate')}}',
                 type:'get',
                 data:{
                     classify_name:classify_name,
-                    classify_show:classify_show
+                    classify_show:classify_show,
+                    id:id
                 },
                 success: function(data){
                     if(data== '100'){

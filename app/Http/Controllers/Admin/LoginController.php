@@ -87,9 +87,10 @@ class LoginController extends BaseController
         return view('admin.classifyupdate',['arr'=>$arr]);
     }
     public function ajaxclassifyupdate(Request $request){
+        $id=$request->input('id');
         $classify_name=$request->input('classify_name');
         $classify_show=$request->input('classify_show');
-        $r=Classify::where(['classify_name'=>$classify_name,'classify_show'=>$classify_show])->update();
+        $r=Classify::where(['id'=>$id])->update(['classify_name'=>$classify_name,'classify_show'=>$classify_show]);
         if($r){
             echo 100;
         }else{
